@@ -1,0 +1,236 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    height: 100vh;
+    background-color: #333333;
+    display: flex;
+    align-items: center;
+}
+
+.mode-btn {
+    border: 5px solid rgb(0, 0, 0);
+    box-shadow: 5px 10px #222222;
+    border-radius: 5%;
+    padding: 15px;
+    background: linear-gradient(#a70707, #684d4d);
+    color: rgba(255, 255, 255, 0.938);
+    font-size: 18px;
+    font-family: 'Gloria Hallelujah', cursive;
+    font-weight: bold;
+    cursor: pointer;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 35%;
+    left: -50%;
+}
+
+.mode-btn:active {
+  box-shadow: 0 5px rgb(70, 70, 70);
+  transform: translateY(4px);
+}
+
+/* --------------- PREHISTORIC MODE --------------- */
+
+.dino-game {
+    width: 920px;
+    height: 280px;
+    margin: 0 auto;
+    position: relative;
+    background: rgb(232, 232, 232);
+    border: 1px solid black;
+    box-shadow: 5px 10px #222222;
+    overflow: hidden;
+}
+
+#dino {
+    width: 84px;
+    height: 84px;
+    position: absolute;
+    bottom: 22px;
+    left: 42px;
+    z-index: 2;
+    background-image: url(/img/prehistoricDino.png);
+    background-size: 336px 85px;
+    background-position-x: 0px;   
+}
+
+.dark #dino { 
+    display: none;   
+}
+
+.running {
+    animation: runDino 0.25s steps(2) infinite;
+}
+
+.jump {
+    animation: jump 0.4s linear;
+}
+
+.ground {
+    width: 200%;
+    height: 42px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background: url(/img/prehistoricGround.png) repeat-x 0px 0px;
+    background-size: 50% 20px;
+}
+
+#obstacle {
+    width: 46px;
+    height: 95px;
+    position: absolute;
+    bottom: 16px;
+    left: 600px;
+    z-index: 10;
+    background-image: url(/img/cactus.png);
+    
+    animation: block 1.25s infinite linear;
+}
+
+.dark #obstacle { 
+    display: none;   
+}
+
+.score {
+    width: 100px;
+    height: 30px;
+    position: absolute;
+    top: 5px;
+    right: 15px;
+    z-index: 10;
+    color: #818181;
+    font-family: Verdana;
+    font-size: 30px;
+    font-weight: bold;
+    text-align: right;
+}
+
+/* --------------- DEADPOOL MODE ----------------- */
+
+.dark .dino-game {
+    width: 920px;
+    height: 280px;
+    margin: 0 auto;
+    position: relative;
+    background: linear-gradient(#145a77, #ffffff);
+    border: 1px solid black;
+    box-shadow: 5px 10px #222222;
+    overflow: hidden;
+}
+
+.dark #dinopool {
+    width: 84px;
+    height: 84px;
+    position: absolute;
+    bottom: 22px;
+    left: 42px;
+    z-index: 2;
+    background-image: url(/img/dinopools.png);
+    background-size: 336px 97px;
+    background-position-x: 0px;   
+}
+
+body:not(.dark) #dinopool {
+    display:none;
+} 
+
+.dark .running {
+    animation: runDino 0.25s steps(2) infinite;
+}
+
+.dark .jump {
+    animation: jump 0.4s linear;
+}
+
+.dark #cow {
+    width: 85px;
+    height: 75px;
+    position: absolute;
+    bottom: 16px;
+    left: 600px;
+    z-index: 10;
+    background-image: url(/img/cows.png);
+    background-size: 85px 100px;
+    
+    animation: block 1.25s infinite linear;
+}
+
+body:not(.dark) #cow {
+    display:none;
+} 
+
+.dark .ground {
+    width: 200%;
+    height: 42px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background: url(/img/ground.png) repeat-x 0px 0px;
+    background-size: 50% 42px;
+}
+
+body:not(.dark) .ground {
+    display:none;
+} 
+
+.dark .score {
+    width: 100px;
+    height: 30px;
+    position: absolute;
+    top: 5px;
+    right: 15px;
+    z-index: 10;
+    color: #ffffff;
+    font-family: Verdana;
+    font-size: 30px;
+    font-weight: bold;
+    text-align: right;
+}
+
+body:not(.dark) .score {
+    display:none;
+} 
+
+/* ---------------- ANIMATIONS ------------------- */
+
+@keyframes runDino {
+    from {
+        background-position-x: -84px;
+    }
+    to {
+        background-position-x: -252px;
+    }
+}
+
+@keyframes jump {
+    0% {
+        top: 150px;
+    }
+    20% {
+        top: 100px;
+    }
+    50% {
+        top: 40px;
+    }
+    80% {
+        top: 100px;
+    }
+    100% {
+        top: 150px;
+    }
+}
+
+@keyframes block {
+    0% {
+        left: 900px;
+    }
+    100% {
+        left: -20px;
+    }
+}
