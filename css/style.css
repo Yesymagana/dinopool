@@ -59,9 +59,9 @@ body {
     background-position-x: 0px;   
 }
 
-.dark #dino { 
+/* .dark #dino { 
     display: none;   
-}
+} */
 
 .running {
     animation: runDino 0.25s steps(2) infinite;
@@ -81,7 +81,7 @@ body {
     background-size: 50% 20px;
 }
 
-#obstacle {
+#cactus {
     width: 46px;
     height: 95px;
     position: absolute;
@@ -93,9 +93,9 @@ body {
     animation: block 1.25s infinite linear;
 }
 
-.dark #obstacle { 
+/* .dark #cactus { 
     display: none;   
-}
+} */
 
 .score {
     width: 100px;
